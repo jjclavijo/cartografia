@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Untitled</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  
+  
+  
+  
+</head>
+<body>
+<h1 id="guia-para-clase-3-borrador-uso-interno.">Guia para Clase 3: borrador uso interno.</h1>
+<p>Autor: Javier Clavijo, Utilizar bajo los términos de la licencia CC-By-SA-4.0: https://creativecommons.org/licenses/by-sa/4.0/</p>
+<h2 id="coordenadas-ne-bases-vectoriales.">Coordenadas <span class="math inline">\(\ne\)</span> Bases Vectoriales.</h2>
+<p>El primer paso para la elaboración de una carta es la adopción de un sistema de coordenadas para decribir los puntos en <span class="math inline">\(\mathbb{R}^3\)</span> que serán objeto de la transformación que se construirá.</p>
+<p>Al adoptar un sistema de coordenadas, lo que se está haciendo es tomar una parametrización del espacio completo, y para poder analizar el comportamiento de las transformaciones a aplicar, debemos conocer la relación de esta parametrización con respecto al sistema cartesiano.</p>
+<p>Adoptaremos el sistema de coordenadas esféricas, que se relaciona con el sistema cartesiano segun las siguientes ecuaciones:</p>
+<p><span class="math display">\[\begin{align*}
+x &amp;= R\, cos\, \varphi cos\, \lambda \\
+y &amp;= R\, cos\, \varphi seno\, \lambda \\
+z &amp;= R\, seno\, \varphi 
+\end{align*}\]</span></p>
+<p>Cada sistema de coordenadas tiene asociado una base vectorial, que es un conjunto de vectores (campos vecoriales), uno por cada coordenada, que en cada punto del espacio toman la dirección de la linea coordenada correspondiente, y cuya magnitud corresponde a la escala con la que se traduce un desplazamiento en dicha coordenada al espacio parametrizado.</p>
+<div style="background-color: lightblue ; width: 70%; margin: auto">
+<p>Notacion:</p>
+<p>En lo que sigue, denominaremos a los vectores con letra negrita mientras que con letra simple se designara coordenadas. Por ejemplo <span class="math inline">\(\boldsymbol{\varphi}\)</span> es el vector base que se genera al avanzar por la coordenada <span class="math inline">\(\varphi\)</span>.</p>
+</div>
+<p>Siendo <span class="math inline">\(\boldsymbol{r}\)</span> el vector posición, y <span class="math inline">\(\{x,y,z\}\)</span> las coordenadas del sistema cartesiano, la base vectorial cartesiana queda formada por los vectores <span class="math inline">\(\boldsymbol{i},\, \boldsymbol{j},\, \boldsymbol{k}\)</span> que son:</p>
+<p><span class="math display">\[\begin{align*}
+\boldsymbol{e_x} &amp;= \frac{\partial \boldsymbol{r}}{\partial x} \\
+\boldsymbol{e_y} &amp;= \frac{\partial \boldsymbol{r}}{\partial y} \\
+\boldsymbol{e_z} &amp;= \frac{\partial \boldsymbol{r}}{\partial z}
+\end{align*}\]</span></p>
+<h2 id="componentes-de-un-vector">Componentes de un vector</h2>
+<p>Las componentes de un vector <span class="math inline">\(\boldsymbol{v}\)</span> en una base determinada <span class="math inline">\(\{ \theta_1,\theta_2,\theta_3 \}\)</span> — Denotados como <span class="math inline">\(v_i\)</span> — son los coeficientes que permiten expresar <span class="math inline">\(\boldsymbol{v}\)</span> como una suma del tipo</p>
+<p><span class="math display">\[\boldsymbol{v} = \sum_{i=1,2,3} v_i \theta_i,\]</span></p>
+<p>donde por ejemplo, para la base cartesiana <span class="math display">\[\theta_1 = x\, , \theta_1 = y\, , \theta_3 = z\]</span></p>
+<p>Dado un sistema de coordenadas <span class="math inline">\(\theta\)</span> , si son conocidas las derivadas parciales de las coordenadas cartesianas con respecto al nuevo sistema, es posible hallar las componentes de la base vectorial de <span class="math inline">\(\theta\)</span> como:</p>
+<p><span class="math display">\[\boldsymbol{\theta_i} = \sum_{j=x,y,z} \frac{\partial j}{\partial \theta_i} \boldsymbol{e_j}\]</span></p>
+<div style="background-color: lightblue ; width: 70%; margin: auto">
+<h3 id="nota">NOTA:</h3>
+<p>Para realizar la conversion de bases, pueden expresarse los vectores de una base en funcion de la otra utilizando la matriz jacobiana como</p>
+<p><span class="math display">\[\begin{align}
+ \boldsymbol{J} &amp;= \begin{bmatrix}
+    \dfrac{\partial \boldsymbol{\theta_1}}{\partial \theta^*_1} &amp; \cdots &amp; \dfrac{\partial \boldsymbol{\theta_1}}{\partial \theta^*_n}\\
+    \vdots &amp; \ddots &amp; \vdots\\
+    \dfrac{\partial \boldsymbol{\theta_n}}{\partial \theta^*_1} &amp; \cdots &amp; \dfrac{\partial \boldsymbol{\theta_n}}{\partial \theta^*_n} \end{bmatrix}\\
+\begin{bmatrix} \boldsymbol{\theta^*_1} &amp; \boldsymbol{\cdots}  &amp; \boldsymbol{\theta^*_n} 
+\end{bmatrix} &amp;= \begin{bmatrix} \boldsymbol{\theta_1} &amp; \boldsymbol{\cdots}  &amp; \boldsymbol{\theta_n} 
+\end{bmatrix} \begin{bmatrix}
+    \dfrac{\partial \boldsymbol{\theta_1}}{\partial \theta^*_1} &amp; \cdots &amp; \dfrac{\partial \boldsymbol{\theta_1}}{\partial \theta^*_n}\\
+    \vdots &amp; \ddots &amp; \vdots\\
+    \dfrac{\partial \boldsymbol{\theta_n}}{\partial \theta^*_1} &amp; \cdots &amp; \dfrac{\partial \boldsymbol{\theta_n}}{\partial \theta^*_n} \end{bmatrix}
+\end{align}\]</span></p>
+</div>
+<p>La nueva base vectorial construida no es necesariamente ortogonal — cada vector es ortogonal a todos los otros — ni normal — los vectores base tienen todos norma 1 —</p>
+<p>Para verificar esto, puede utilizarse el producto interno, dado que cumple con las propiedades de que <span class="math display">\[\boldsymbol{a} \cdot \boldsymbol{b} = \|\boldsymbol{a}\|\, \|\boldsymbol{b}\| cos\alpha,\]</span> donde <span class="math inline">\(\alpha\)</span> es el ángulo comprendido entre ambos vectores, y que <span class="math display">\[\|\boldsymbol{a}\| = \boldsymbol{a}\cdot\boldsymbol{a}.\]</span></p>
+<p>Por ejemplo, la base del sistema de coordenadas esféricas puede expresarse como</p>
+<p><span class="math display">\[\begin{align}
+\boldsymbol{r} &amp;=&amp; cos\varphi\, cos\lambda\, \boldsymbol{e_x} &amp;+&amp; cos\varphi\, sen\lambda\, \boldsymbol{e_y} &amp;+&amp; sen\varphi\, \boldsymbol{e_z} \\
+\boldsymbol{\varphi} &amp;=&amp; -R sen\varphi\, cos\lambda\, \boldsymbol{e_x} &amp;-&amp; R sen\varphi\, sen\lambda\, \boldsymbol{e_y} &amp;+&amp; R cos\varphi\, \boldsymbol{e_z} \\
+\boldsymbol{\lambda} &amp;=&amp; -R cos\varphi\, sen\lambda\, \boldsymbol{e_x} &amp;+&amp; R cos\varphi\, cos\lambda\, \boldsymbol{e_y} &amp;+&amp; 0\, \boldsymbol{e_z} 
+\end{align}\]</span></p>
+<p>Luego, para verificar la ortogonalidad debemos verifica si se cumple que <span class="math display">\[\boldsymbol{\varphi}\cdot\boldsymbol{\lambda} = 0,\,\boldsymbol{\varphi}\cdot\boldsymbol{r} = 0,\,\boldsymbol{r}\cdot\boldsymbol{\lambda} = 0.\]</span></p>
+<div style="background-color: lightblue ; width: 70%; margin: auto">
+<p>NOTA: Introducimos aqui el convenio de sumación de einstein. En el mismo, cada vez que aparecen dentro del mismo término subíndices repetidos, significa que este término representa la sumatória de ese término sobre todos los valores posibles de ese subindice. Por ejemplo <span class="math display">\[\boldsymbol{a} = a_i \boldsymbol{e_i} = \sum_{i=x,y,z} a_i \boldsymbol{e_i},\]</span> es la representación de un vector  segun sus componentes sobre la base <span class="math inline">\(\{\boldsymbol{e_x},\boldsymbol{e_y},\boldsymbol{e_z}\}.\)</span></p>
+</div>
+<p>Debemos tener en cuanta que el producto interno entre dos vectores se expresa como <span class="math display">\[\boldsymbol{a}\cdot\boldsymbol{b} = a_i\boldsymbol{e_i}\cdot b_j\boldsymbol{e_j} = a_i b_j \boldsymbol{e_i}\cdot \boldsymbol{e_j},\]</span> debido a la bilinealidad del producto interno. Luego, si los vectores están expresados en una base ortogonal, <span class="math display">\[\boldsymbol{e_i} \cdot \boldsymbol{e_j} = 0, \forall i \ne j, \]</span> es decir que de los 9 términos de la sumatoria solo se conservan aquellos donde <span class="math inline">\(i=j\)</span>. Luego, <span class="math display">\[\boldsymbol{a}\cdot\boldsymbol{b} = a_i\boldsymbol{e_i}\cdot b_i\boldsymbol{e_i} = a_i b_i \boldsymbol{e_i}\cdot\boldsymbol{e_i} = a_i b_i \|\boldsymbol{e_i}\|^2.\]</span></p>
+<p>En adición, si la base vectorial utilizada es también normal, es decir que <span class="math inline">\(\|\boldsymbol{e_i}\|^2 \forall i,\)</span> <span class="math display">\[\boldsymbol{a}\cdot\boldsymbol{b} = a_i b_i,\]</span> que es la forma que utilizamos para definir el producto interno cuando trabajamos con la base cartesiana de <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
+<p>Volviendo ahora a nuestros vectores de la base <span class="math inline">\(\{\boldsymbol{\varphi},\boldsymbol{\lambda},\boldsymbol{r}\}\)</span>, vemos que <span class="math display">\[\begin{align*}
+\boldsymbol{\varphi} \cdot \boldsymbol{\lambda} =&amp; (-R sen\varphi\, cos\lambda)\,(-R cos\varphi\, sen\lambda)\, \boldsymbol{e_x} \cdot \boldsymbol{e_x} + \\
+                                       &amp;+ (- R sen\varphi\, sen\lambda)\, (R cos\varphi\, cos\lambda)\, \boldsymbol{e_y} \cdot \boldsymbol{e_y} + \\
+                                       &amp;+ (R cos\varphi)\, 0\, \boldsymbol{e_z} \cdot \boldsymbol{e_z} \\
+                                      =&amp; R^2 sen\varphi\, cos\varphi\, sen\lambda\, cos\lambda\, - R^2 sen\varphi\, cos\varphi\, sen\lambda\, cos\lambda = 0 \\
+\boldsymbol{\varphi} \cdot \boldsymbol{r} =&amp; (-R sen\varphi\, cos\lambda)\,(cos\varphi\, cos\lambda)\, \boldsymbol{e_x} \cdot \boldsymbol{e_x} + \\
+                                       &amp;+ (- R sen\varphi\, sen\lambda)\, (cos\varphi\, sen\lambda)\, \boldsymbol{e_y} \cdot \boldsymbol{e_y} + \\
+                                       &amp;+ (R cos\varphi)\, (sen\varphi)\, \boldsymbol{e_z} \cdot \boldsymbol{e_z} \\
+                                      =&amp; -R sen\varphi\, cos\varphi\, cos^2\lambda\, -R sen\varphi\, cos\varphi\, sen^2\lambda\, + 
+                                         R cos\varphi\, sen\varphi = 0\\
+\boldsymbol{\lambda} \cdot \boldsymbol{r} =&amp; (-R cos\varphi\, sen\lambda\,)\,(cos\varphi\, cos\lambda)\, \boldsymbol{e_x} \cdot \boldsymbol{e_x} + \\
+                                       &amp;+ (R cos\varphi\, cos\lambda)\, (cos\varphi\, sen\lambda)\, \boldsymbol{e_y} \cdot \boldsymbol{e_y} + \\
+                                       &amp;+ 0\, (sen\varphi)\, \boldsymbol{e_z} \cdot \boldsymbol{e_z} \\
+                                      =&amp; -R cos^2\varphi\, sen\lambda\, cos\lambda\, + R cos^2\varphi\, sen\lambda\, cos\lambda\,
+                                         = 0
+\end{align*}\]</span></p>
+<p>Queda demostrado entonces que la nueva base vectorial es ortogonal. Queda comprobar los modulos de los vectores para verificar la normalidad.</p>
+<p><span class="math display">\[\begin{align*}
+\boldsymbol{\varphi} \cdot \boldsymbol{\varphi} =&amp; (-R sen\varphi\, cos\lambda)\,(-R sen\varphi\, cos\lambda)\, \boldsymbol{e_x} \cdot \boldsymbol{e_x} + \\
+                                       &amp;+ (- R sen\varphi\, sen\lambda)\, (- R sen\varphi\, sen\lambda)\, \boldsymbol{e_y} \cdot \boldsymbol{e_y} + \\
+                                       &amp;+ (R cos\varphi)\, (R cos\varphi)\, \boldsymbol{e_z} \cdot \boldsymbol{e_z} \\
+                                      =&amp; R^2 sen^2\varphi\, cos^2\lambda\, + R^2 sen^2\varphi sen^2\lambda\, + R^2 cos^2\varphi = R^2 \\
+\boldsymbol{\lambda} \cdot \boldsymbol{\lambda} =&amp; (-R cos\varphi\, sen\lambda\,)\,(-R cos\varphi\, sen\lambda\,)\, \boldsymbol{e_x} \cdot \boldsymbol{e_x} + \\
+                                       &amp;+ (R cos\varphi\, cos\lambda)\, (R cos\varphi\, cos\lambda)\, \boldsymbol{e_y} \cdot \boldsymbol{e_y} + \\
+                                       &amp;+ 0\, \boldsymbol{e_z} \cdot \boldsymbol{e_z} \\
+                                      =&amp; R^2 cos^2\varphi\, sen^2\lambda\, + R cos^2\varphi\, cos^2\lambda\, = R^2 cos^2\lambda\\
+\boldsymbol{r} \cdot \boldsymbol{r} =&amp; (cos\varphi\, cos\lambda)\,(cos\varphi\, cos\lambda)\, \boldsymbol{e_x} \cdot \boldsymbol{e_x} + \\
+                                       &amp;+ (cos\varphi\, sen\lambda)\, (cos\varphi\, sen\lambda)\, \boldsymbol{e_y} \cdot \boldsymbol{e_y} + \\
+                                       &amp;+ (sen\varphi)\, (sen\varphi)\, \boldsymbol{e_z} \cdot \boldsymbol{e_z} \\
+                                      =&amp; cos^2\varphi\, cos^2\lambda\, + cos^2\varphi\, sen^2\lambda\, + sen^2\varphi = 1
+\end{align*}\]</span></p>
+<p>Se verifica que los modulos de los vectores base no son todos iguales, por lo tanto la base no es normal.</p>
+<div style="background-color: lightblue ; width: 70%; margin: auto">
+<p>NOTA: Esto significa que la métrica de este sistema de coordenadas es distinta a la identidad y no es constante. En consecuencia, si se construye una carta del subespacio <span class="math inline">\(r=k\)</span> sobre el plano <span class="math inline">\(\mathbb{R}^2\)</span>, utilizando la transformación que resulta intuitiva <span class="math inline">\(\varphi \rightarrow x,\, \lambda \rightarrow y\)</span>, la escala se verá afectada en forma diferente para cada punto (metrica variable) y para cada dirección (metrica distinta a la identidad). En forma intuiva, si la magnitud de los vectores base varia en cada punto del espacio, y la relación entre ellos no se mantiene, al aplicarlos a una base de <span class="math inline">\(\mathbb{R}^2\)</span> que sí cumple con estas carácterísticas, existiran deformaciones en todos los sentidos descriptos.</p>
+</div>
+<p>Una transformación cualquiera <span class="math display">\[\theta_x=f(\varphi,\lambda),\theta_y=g(\varphi,\lambda)\]</span> que sea continua y biyectiva, definida sobre un subespacio continuo de <span class="math inline">\(\mathbb{R}^3\)</span> descripto por las ecuaciones <span class="math display">\[r=k;\,a &lt; \varphi &lt; b;\,c &lt; \lambda &lt; d, \mid a,b \in [-\frac{\pi}{2};-\frac{\pi}{2}]; c,d \in [-\pi;\pi],\]</span> puede interpretarse como un nuevo sistema de coordenadas del subespacio definido, que genera una base vectorial <span class="math inline">\(\boldsymbol{\theta_x},\boldsymbol{\theta_y}\)</span>. Las componentes de estos vectores pueden calcularse conociendo las derivadas parciales de la transformación inversa, de manera que</p>
+<p><span class="math display">\[\begin{align}
+\boldsymbol{\theta_x} = &amp; \dfrac{\partial \boldsymbol{r}}{\partial x} = &amp; \dfrac{\partial \boldsymbol{r}}{\partial \varphi} \dfrac{\partial \varphi}{\partial x} + \dfrac{\partial \boldsymbol{r}}{\partial \lambda} \dfrac{\partial \lambda}{\partial x} = \boldsymbol{\varphi} \dfrac{\partial \varphi}{\partial x} + \boldsymbol{\lambda} \dfrac{\partial \lambda}{\partial x} \\
+\boldsymbol{\theta_y} = &amp; \dfrac{\partial \boldsymbol{r}}{\partial y} = &amp; \dfrac{\partial \boldsymbol{r}}{\partial \varphi} \dfrac{\partial \varphi}{\partial y} + \dfrac{\partial \boldsymbol{r}}{\partial \lambda} \dfrac{\partial \lambda}{\partial y} = \boldsymbol{\varphi} \dfrac{\partial \varphi}{\partial y} + \boldsymbol{\lambda} \dfrac{\partial \lambda}{\partial y} \\
+\end{align}\]</span></p>
+<p>Un vector <span class="math inline">\(\boldsymbol{a} = a_i \boldsymbol{\theta_i}, i\in\{x,y\}\)</span> expresado en esta base vectorial, cumple que <span class="math display">\[\|a\|^2 = a_i a_j \boldsymbol{\theta_i} \cdot \boldsymbol{\theta_j}\]</span></p>
+<p>Para poder hallar una expresion general es de práctica utilidad hallar las cantidades <span class="math inline">\(\boldsymbol{\theta_x} \cdot \boldsymbol{\theta_x}, \boldsymbol{\theta_x} \cdot \boldsymbol{\theta_y}, \boldsymbol{\theta_y} \cdot \boldsymbol{\theta_x},\boldsymbol{\theta_y} \cdot \boldsymbol{\theta_y}\)</span>, de los cuales el segundo y el tercero son iguales, por propiedad conmutativa del producto interno. Estas cantidades se denominan componentes de la metrica del sistema de coordenadas, y se notan <span class="math inline">\(g_{ij} , i,j \in {x,y}\)</span>.</p>
+<p><span class="math display">\[\begin{align}
+g_{xx} = &amp; \dfrac{\partial \varphi}{\partial x}^2 \|\boldsymbol{\varphi}\|^2 + \dfrac{\partial \lambda}{\partial x}^2 \|\boldsymbol{\lambda}\|^2 \\
+g_{yy} = &amp; \dfrac{\partial \varphi}{\partial y}^2 \|\boldsymbol{\varphi}\|^2 + \dfrac{\partial \lambda}{\partial y}^2 \|\boldsymbol{\lambda}\|^2 \\
+g_{xy} = &amp; \dfrac{\partial \varphi}{\partial x}\dfrac{\partial \varphi}{\partial y} \|\boldsymbol{\varphi}\|^2 + \dfrac{\partial \lambda}{\partial x}\dfrac{\partial \lambda}{\partial y} \|\boldsymbol{\lambda}\|^2
+\end{align}\]</span></p>
+<p>Notamos que ahora el producto interno de vectores expresados en la nueva base vectorial puede ser reescrito como <span class="math display">\[\boldsymbol{a} \cdot \boldsymbol{b} = a_i b_j g_{ij}\]</span></p>
+<p>Podemos ver que, en caso de que los vectores <span class="math inline">\(\theta_x,\theta_y\)</span> fueran ortogonales, la componente <span class="math inline">\(g_{xy}\)</span> se anula, por tanto el producto interno en la base vectorial expresada queda escrito como <span class="math display">\[\boldsymbol{a} \cdot \boldsymbol{b} = a_i b_i g_{ii}\]</span>.</p>
+<p>A las componentes de la métrica de un sistema de coordenadas definido sobre un subespacio de dimension dos se las llama también términos gaussianos, por ser Carl Gauss quien primero los estudió, y se los suele denominar E,F y G, tal que <span class="math inline">\(E= g_{xx}, F=g_{xy}=g_{yx}, G=g_{yy}\)</span></p>
+<div style="background-color: lightblue ; width: 70%; margin: auto">
+<p>NOTA: Cuando se genera un sistema de coordenadas partiendo de aplicar una transformación sobre un subespacio plano parametrizado por <span class="math inline">\(\boldsymbol{u}\,\boldsymbol{v}\)</span>, tal que <span class="math inline">\(\|\boldsymbol{u}\|=1\)</span>, <span class="math inline">\(\|\boldsymbol{v}\|=1\)</span>, <span class="math inline">\(\boldsymbol{u} \cdot \boldsymbol{v}=0\)</span>. Las componentes de la métrica, si nombramos <span class="math inline">\(\theta_1,\theta_2\)</span> a las nuevas coordenadas queda expresada como</p>
+<p><span class="math display">\[\begin{align}
+E = &amp; \dfrac{\partial u}{\partial \theta_1}^2 + \dfrac{\partial u}{\partial \theta_2}^2 \\
+G = &amp; \dfrac{\partial v}{\partial \theta_1}^2 + \dfrac{\partial v}{\partial \theta_2}^2 \\
+F = &amp; \dfrac{\partial u}{\partial \theta_1}\dfrac{\partial v}{\partial \theta_1} + \dfrac{\partial u}{\partial \theta_2}\dfrac{\partial v}{\partial \theta_2},
+\end{align}\]</span></p>
+</div>
+<p>Tal como mencionamos mas arriba, no hay garantias de que para una transformacion genérica <span class="math inline">\(\mathbb{R}^2 \rightarrow \mathbb{R}^2\)</span>, la base <span class="math inline">\(\boldsymbol{\theta_x};\boldsymbol{\theta_y}\)</span> generada sea ortogonal aun cuando la base del sistema de coordenadas de origen lo fuera, sin embargo podemos hacer la siguiente observación.</p>
+<p><strong>Observacion:</strong> En general se cumple que <span class="math inline">\(\boldsymbol{a} \cdot \boldsymbol{-a} = - \|\boldsymbol{a}\|^2\)</span>, lo que reemplazando en <span class="math inline">\(cos\alpha = \frac{\|\boldsymbol{a}\|\|\boldsymbol{b}\|}{\boldsymbol{a}\cdot\boldsymbol{b}}\)</span> nos indica que el angulo entre un vector y el mismo vector con su signo invertido es siempre <span class="math inline">\(\pi\)</span>.</p>
+<p><strong>Planteo:</strong> Dados los vectores a,b ortogonales entre si se les aplica a ambos la misma transformación, obteniendo los vectores <span class="math inline">\(\boldsymbol{a^\star},\boldsymbol{b^\star}\)</span>, no necesariamente ortogonales. Por definición, el ángulo <span class="math inline">\(\hat{ab} = \frac{\pi}{2}\)</span> y luego, <span class="math inline">\(\hat{-ba)} = \frac{\pi}{2}\)</span>. También sabemos que <span class="math inline">\(\hat{\boldsymbol{-b^\star},\boldsymbol{a^\star}}+\hat{\boldsymbol{a^\star},\boldsymbol{b^\star}} = \pi\)</span>, y por tanto si <span class="math inline">\(\hat{\boldsymbol{-b^\star},\boldsymbol{a^\star}} &gt; \frac{\pi}{2}\)</span>, entonces <span class="math inline">\(\hat{\boldsymbol{a^\star},\boldsymbol{b^\star}} &lt; \frac{\pi}{2}\)</span>.</p>
+<p>Considerense todos los posibles vectores <span class="math inline">\(\boldsymbol{a&#39;},\boldsymbol{b&#39;}\)</span>, que surgen de rotar a y b un angulo fijo menor a <span class="math inline">\(\frac{\pi}{2}\)</span>. Vemos que al aplicar una rotación de <span class="math inline">\(\frac{\pi}{2}\)</span>, quedará <span class="math inline">\(\boldsymbol{a&#39;} = \boldsymbol{b},\boldsymbol{b&#39;}=\boldsymbol{-a}\)</span>, y por ende <span class="math inline">\(\boldsymbol{a^{\star&#39;}}=\boldsymbol{b^\star},\boldsymbol{b^{\star&#39;}}=\boldsymbol{-a^\star}\)</span> de manera que bajo el mismo supuesto del parrafo anterior <span class="math inline">\(\hat{\boldsymbol{-b^{\star&#39;}},\boldsymbol{a^{\star&#39;}}} &lt; \frac{\pi}{2}\)</span>, y <span class="math inline">\(\hat{\boldsymbol{a^{\star&#39;}},\boldsymbol{b^{\star&#39;}}} &gt; \frac{\pi}{2}\)</span>, es decir que las desigualdades se invirtieron.</p>
+<p>Como la transformación de rotación aplicada es continua y suave, el de angulo entre <span class="math inline">\(\boldsymbol{a^\star}\)</span> y <span class="math inline">\(\boldsymbol{b^\star}\)</span> también lo es, y existe un valor intermedio que cumple que <span class="math inline">\(\hat{\boldsymbol{a^\star},\boldsymbol{b^\star}} = \frac{\pi}{2}\)</span></p>
+<div style="background-color: lightblue ; width: 70%; margin: auto">
+<p>Trasladando esta observación a nuestro ejemplo, vemos que dada una transformacion <span class="math inline">\(f(\varphi,\lambda),g(\varphi,\lambda)\)</span>, podemos encontrar una base vectorial <span class="math inline">\(\boldsymbol{\varphi&#39;},\boldsymbol{\lambda&#39;}\)</span>, que se transforma a un par de vectores ortogonales. Si tomamos este nuevo par como base, vemos que en ese sistema de coordenadas las componentes de la metrica <span class="math inline">\(g_{ij} = 0 \forall i \ne j\)</span>, de manera que el módulo de un vector expresado en esa base queda definido como <span class="math display">\[\|\boldsymbol{a}\|^2 = a_i a_i g_ii = a_x^2 g_{xx} + a_y^2 g_{yy}\]</span>, de manera que, independientemente de cual sean los valores de <span class="math inline">\(g_{yy}\)</span> y <span class="math inline">\(g_{xx}\)</span>, si no son iguales, y consideramos el circulo unitario en el plano xy, los modulos de los vectores en el espacio original tendran sus valores extremos en las direcciones de los ejes x e y, y se cumplirá además que <span class="math display">\[ \frac{a_x^2 g_{xx}}{g_{xx}} + \frac{a_y^2 g_{yy}}{g_{xx}} = 1\]</span>, de modo que el circulo unitario del plano xy corresponde a una elipse en el espacio original.</p>
+</div>
+<p>Hallaremos ahora una forma de encontrar la rotación necesaria para hayar estas direcciones a las que llamaremos fundamentales.</p>
+<p>Construimos <span class="math inline">\(\boldsymbol{\varphi&#39;},\boldsymbol{\lambda&#39;}\)</span> de manera que, con un parámetro A, de manera que <span class="math inline">\(\boldsymbol{\varphi&#39;} \cdot \boldsymbol{\varphi} = cosA \|\boldsymbol{\varphi&#39;}\| \|\boldsymbol{\varphi}\|\)</span> de modo que con <span class="math inline">\(A\in (-\pi,\pi]\)</span> puedan barrerse todas las orientaciones posibles, y que <span class="math inline">\(\boldsymbol{\varphi&#39;}\cdot\boldsymbol{\lambda&#39;}=0\)</span>, <span class="math inline">\(\|\boldsymbol{\varphi&#39;}\|=\|\boldsymbol{\varphi}\|\)</span> y <span class="math inline">\(\|\boldsymbol{\lambda}\|=\|\boldsymbol{\lambda}\|\)</span></p>
+<p><span class="math display">\[\boldsymbol{\varphi&#39;} = \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} \boldsymbol{\lambda} + cosA \boldsymbol{\varphi}\]</span></p>
+<p><span class="math display">\[\boldsymbol{\lambda&#39;} = cosA \boldsymbol{\lambda} - \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} \boldsymbol{\varphi}\]</span></p>
+<p>Notación: dada la transformación <span class="math inline">\(\theta^\star_1(\theta_1,\theta_2), \theta^\star_2(\theta_1,\theta_2)\)</span>, anotamos las derivadas parciales utilizando una coma u luego un subindice, por ejemplo <span class="math display">\[\theta^\star_{1,\theta_2} = \dfrac{\partial \theta^\star_{1}}{\partial \theta_2}\]</span></p>
+<p>Luego, si aplicamos sobre los vectores construidos la transformación <span class="math inline">\(x = f(\varphi,\lambda), y=g(\varphi,\lambda)\)</span>, podemos expresar <span class="math inline">\(\boldsymbol{\varphi}, \boldsymbol{\lambda}\)</span> en funcion de los nuevos vectores <span class="math inline">\(\boldsymbol{x}, \boldsymbol{y}\)</span>.</p>
+<p><span class="math display">\[\boldsymbol{\varphi&#39;} = \left[ \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} x&#39;_{,\lambda} + cosA x&#39;_{,\varphi} \right] \boldsymbol{x} +
+                     \left[ \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} y&#39;_{,\lambda} + cosA y&#39;_{,\varphi} \right] \boldsymbol{y} \]</span></p>
+<p><span class="math display">\[\boldsymbol{\lambda&#39;} = \left[cosA x&#39;_{,\lambda} - \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} x&#39;_{,\varphi} \right] \boldsymbol{x} +
+                     \left[cosA y&#39;_{,\lambda} - \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} y&#39;_{,\varphi} \right] \boldsymbol{y} \]</span></p>
+<p>La condición que buscamos es que, en el plano xy, generado por la base ortonormal <span class="math inline">\(\{\boldsymbol{x},\boldsymbol{y}\}\)</span>, <span class="math inline">\(\boldsymbol{\varphi&#39;}\)</span> y <span class="math inline">\(\boldsymbol{\lambda&#39;}\)</span> sean ortogonales.</p>
+<div style="background-color: lightblue ; width: 70%; margin: auto">
+<p>NOTA: Hacemos notar que en general <span class="math inline">\(\|\boldsymbol{x}\|\ne1\)</span> y <span class="math inline">\(\|\boldsymbol{x}\|\ne1\)</span> en el espacio de origen, sin embargo, estamos evaluando la ortogonalidad en el plano xy, donde <span class="math inline">\(\boldsymbol{x},\boldsymbol{y}\)</span> es la base ortonormal canónica del plano. Es decir, que nuestra transformación se da entre dos espacios distintos.</p>
+</div>
+<p>En el plno xy</p>
+<p><span class="math display">\[\begin{align*}
+\boldsymbol{\varphi} \cdot \boldsymbol{\lambda} &amp;= \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} {x&#39;_{,\lambda}}^2 cosA - \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} x&#39;_{,\lambda} x&#39;_{,\varphi} + cos^2A x&#39;_{,\lambda} x&#39;_{,\varphi} - cosA \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} {x&#39;_{,\varphi}}^2 +  \\
+                                      &amp;+ \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} {y&#39;_{,\lambda}}^2 cosA - \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} y&#39;_{,\lambda} y&#39;_{,\varphi} + cos^2A y&#39;_{,\lambda} y&#39;_{,\varphi} - cosA \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} {y&#39;_{,\varphi}}^2 \\
+                                      &amp;= senA\,cosA \left[\frac{\|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} {x&#39;_{,\lambda}}^2 - \frac{\|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} {x&#39;_{,\varphi}}^2 \right] + x&#39;_{,\lambda} x&#39;_{,\varphi} (cos^2A-sen^2A) +  \\
+                                      &amp;+ senA\,cosA \left[\frac{\|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} {y&#39;_{,\lambda}}^2 - \frac{\|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} {y&#39;_{,\varphi}}^2 \right] + y&#39;_{,\lambda} y&#39;_{,\varphi} (cos^2A-sen^2A) \\
+                                      &amp;= \underbrace{senA\,cosA}_{\frac{1}{2}sen(2A)} \left[\frac{\|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} \underbrace{({x&#39;_{,\lambda}}^2+{y&#39;_{,\lambda}}^2)}_{\text{G}} - \frac{\|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} \underbrace{({x&#39;_{,\varphi}}^2+{x&#39;_{,\varphi}}^2)}_{\text{E}} \right] + \underbrace{(x&#39;_{,\lambda} x&#39;_{,\varphi} + y&#39;_{,\lambda} y&#39;_{,\varphi})}_{\text{F}} \underbrace{(cos^2A-sen^2A)}_{cos(2A)}
+\end{align*}\]</span></p>
+<p>Recordamos aqui que los modulos que aparecen en la formula, <span class="math inline">\(\|\boldsymbol{\varphi}\|\)</span> y <span class="math inline">\(\|\boldsymbol{\lambda}\|\)</span> se refieren al espacio de origen, es decir que <span class="math display">\[\frac{\|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} = cos\varphi\,;\,\frac{\|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} = cos^-1\varphi\]</span></p>
+<p>Reemplazando en la ecuacion de <span class="math inline">\(\boldsymbol{\varphi} \cdot \boldsymbol{\lambda}\)</span> en el espacio objetivo, e igualandolo a 0 nos queda <span class="math display">\[\begin{align}
+0 &amp;= \frac{sen(2A)}{2} \left(\frac{\text{G}}{cos\varphi} - \text{E}cos\varphi\right) + \text{F} cos(2A) \\
+\frac{sen(2A)}{cos(2A)} = tan(2A) &amp;= \frac{2\text{F}\, cos\varphi}{-\text{G} + \text{E}cos^2\varphi}
+\end{align}\]</span></p>
+<p>Si la primera de estas dos expresiones no se anula en forma general, la segunda de ellas presenta cuatro soluciones de la forma <span class="math inline">\(A+k\frac{\pi}{2},\, k \in \{1,2,3,4\}\)</span>. En los casos en que la primera expresion se anula en general, resulta que cualquier par de vectores ortogonales en el espacio de origen lo son en el espacio objetivo, lo cual quiere decir que estamos ante una transformación conforme.</p>
+<div style="background-color: lightblue ; width: 70%; margin: auto">
+<p>Ejercicio:</p>
+<p>comprobar que para la transformacion de mercator la formula se anula en general</p>
+</div>
+<p>No es casual que hallamos dado los nombres E, G, y F a los términos que aparecen en la formula. Estos términos corresponden a la métrica del sistema de coordenadas <span class="math inline">\(\varphi,\lambda\)</span> definido sobre el plano xy – nuestro espacio objetivo en la transformacion <span class="math inline">\(f,g\)</span> analizada –, que se define como <span class="math inline">\(\varphi = h(x,y)\,;\, \lambda = i(x,y)\)</span> donde <span class="math inline">\(h\)</span> e <span class="math inline">\(y\)</span> son funciones tales que <span class="math inline">\(h(f(\varphi_1,\lambda_1),g(\varphi_1,\lambda_1) = \varphi_1\,;\,i(f(\varphi_1,\lambda_1),g(\varphi_1,\lambda_1) = \lambda_1\)</span></p>
+<p>Esta métrica nos permite definir el producto interno y la norma en el espacio objetivo, con vectores expresados en el sistema de coordenadas <span class="math inline">\(\varphi,\lambda\)</span>. Por ejemplo</p>
+<p><span class="math display">\[\|\boldsymbol{a}\|^2 = a_\varphi^2 E + a_\lambda^2 G + 2 F a_\lambda a_\varphi\]</span></p>
+<div style="background-color: lightblue ; width: 70%; margin: auto">
+<p>Observación:</p>
+<p>En caso de que hallar las funciones <span class="math inline">\(h&#39;,i&#39;\)</span> que generan las coordenadas <span class="math inline">\(\varphi&#39;,\lambda&#39;\)</span>, de tal manera que <span class="math inline">\(\boldsymbol{\varphi} \cdot \boldsymbol{\lambda} = 0\)</span>, que corresponden a las direcciones fundamentales halladas anteriormente, la métrica generada, descripta por los valores E’, G’ y F’, es tal que <span class="math inline">\(F&#39;=0\)</span>. Luego, el producto interno en esta base queda expresado como <span class="math display">\[\|\boldsymbol{a}\|^2 = a_{\varphi&#39;}^2 E&#39; + a_{\lambda&#39;}^2 G&#39;\]</span>. De modo que, sean cuales sean los valores de E y G, si no son iguales, se da la misma situación descripta anteriormente, donde partiendo de un circulo en el plano <span class="math inline">\(\varphi&#39;\lambda&#39;\)</span>, se llega a una elipse en el plano xy, con los ejes mayor y menor orientados segun los ejex x e y. Demostrando que las direcciones de <span class="math inline">\(\boldsymbol{\varphi&#39;},\boldsymbol{\lambda&#39;}\)</span> son las direcciones de maxima y minima deformacion de escala, y los factores <span class="math inline">\(\sqrt{E&#39;}\)</span> y <span class="math inline">\(\sqrt{G&#39;}\)</span> son los factores de escala máximo y mínimo, también llamados módulos de deformación lineal.</p>
+</div>
+<p>Si queremos hallar el factor de escala en una dirección arbitraria, debemos comparar la norma de un vector en el espacio origen y en el espacio objetivo. Tomaremos el vector <span class="math inline">\(\boldsymbol{\varphi&#39;}\)</span>, definido como dijimos, de tal forma que <span class="math inline">\(\boldsymbol{\varphi&#39;} \cdot \boldsymbol{\varphi} = cosA \|\boldsymbol{\varphi&#39;}\| \|\boldsymbol{\varphi}\|\)</span> y <span class="math inline">\(\|\boldsymbol{\varphi&#39;}\|^2=\|\boldsymbol{\varphi}\|^2 = R^2\)</span>.</p>
+<p>Las componentes de este vector son <span class="math display">\[ \varphi&#39;_\varphi = cosA ,\, \varphi&#39;_\lambda = \frac{cosA}{cos\varphi},\]</span> de manera tal que, en el espacio objetivo se da</p>
+<p><span class="math display">\[\|\boldsymbol{\varphi&#39;}\|^2 = {\varphi&#39;_\varphi}^2 E + {\varphi&#39;_\lambda}^2 G + 2 F \varphi&#39;_\lambda \varphi&#39;_\varphi\]</span></p>
+<p><span class="math display">\[\|\boldsymbol{\varphi&#39;}\|^2 = cos^2A E + \frac{sen^2A}{cos^2\varphi} G + 2 F \frac{cosAsenA}{cos\varphi}\]</span></p>
+<p>Luego, el factor de escala en una dirección queda expresado como</p>
+<p><span class="math display">\[{m^l_A}^2 =\frac{\|\boldsymbol{\varphi&#39;}\|^2_{\text{espacio objetivo}}}{\|\boldsymbol{\varphi&#39;}\|^2_{\text{espacio origen}}} = \frac{cos^2A E + \frac{sen^2A}{cos^2\varphi} G + 2 F \frac{cosAsenA}{cos\varphi}}{R^2}\]</span></p>
+<div style="background-color: lightblue ; width: 70%; margin: auto">
+<p>Ejercicio:</p>
+<ol type="a">
+<li>Se pueden hallar las direcciones fundamentales a partir de hallar los puntos extremos de <span class="math inline">\({m^l_A}^2\)</span> considerada como una funcion del azimut A.</li>
+</ol>
+</div>
+</body>
+</html>
