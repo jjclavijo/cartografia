@@ -7,6 +7,10 @@ header-includes:
     - \usepackage{amsmath}
     - \usepackage{amsfonts}
     - \usepackage{unicode-math}
+    - \usepackage[dvipsnames]{xcolor}
+    - \setlength{\fboxrule}{2pt}
+title: Bases Vectoriales Cartografía
+author: Javier J. Clavijo
 ---
 
 # Guia para Clase 3: borrador uso interno.
@@ -101,7 +105,7 @@ NOTA: Introducimos aqui el convenio de sumación de einstein. En el mismo, cada 
 
 Debemos tener en cuanta que el producto interno entre dos vectores se expresa como $$\symbf{a}\cdot\symbf{b} = a_i\symbf{e_i}\cdot b_j\symbf{e_j} = a_i b_j \symbf{e_i}\cdot \symbf{e_j},$$ debido a la bilinealidad del producto interno. Luego, si los vectores están expresados en una base ortogonal, $$\symbf{e_i} \cdot \symbf{e_j} = 0, \forall i \ne j, $$ es decir que de los 9 términos de la sumatoria solo se conservan aquellos donde $i=j$. Luego, $$\symbf{a}\cdot\symbf{b} = a_i\symbf{e_i}\cdot b_i\symbf{e_i} = a_i b_i \symbf{e_i}\cdot\symbf{e_i} = a_i b_i \|\symbf{e_i}\|^2.$$
 
-En adición, si la base vectorial utilizada es también normal, es decir que $\|\symbf{e_i}\|^2 \forall i,$ $$\symbf{a}\cdot\symbf{b} = a_i b_i,$$ que es la forma que utilizamos para definir el producto interno cuando trabajamos con la base cartesiana de $\mathds{R}^2$.
+En adición, si la base vectorial utilizada es también normal, es decir que $\|\symbf{e_i}\|^2 = 1 \forall i,$ $$\symbf{a}\cdot\symbf{b} = a_i b_i,$$ que es la forma que utilizamos para definir el producto interno cuando trabajamos con la base cartesiana de $\mathds{R}^2$.
 
 Volviendo ahora a nuestros vectores de la base $\{\symbf{\varphi},\symbf{\lambda},\symbf{r}\}$, vemos que 
 \begin{align*}
@@ -131,7 +135,7 @@ Queda demostrado entonces que la nueva base vectorial es ortogonal. Queda compro
 \symbf{\lambda} \cdot \symbf{\lambda} =& (-R cos\varphi\, sen\lambda\,)\,(-R cos\varphi\, sen\lambda\,)\, \symbf{e_x} \cdot \symbf{e_x} + \\
                                        &+ (R cos\varphi\, cos\lambda)\, (R cos\varphi\, cos\lambda)\, \symbf{e_y} \cdot \symbf{e_y} + \\
 									   &+ 0\, \symbf{e_z} \cdot \symbf{e_z} \\
-								      =& R^2 cos^2\varphi\, sen^2\lambda\, + R cos^2\varphi\, cos^2\lambda\, = R^2 cos^2\lambda\\
+								      =& R^2 cos^2\varphi\, sen^2\lambda\, + R cos^2\varphi\, cos^2\lambda\, = R^2 cos^2\varphi\\
 \symbf{r} \cdot \symbf{r} =& (cos\varphi\, cos\lambda)\,(cos\varphi\, cos\lambda)\, \symbf{e_x} \cdot \symbf{e_x} + \\
                                        &+ (cos\varphi\, sen\lambda)\, (cos\varphi\, sen\lambda)\, \symbf{e_y} \cdot \symbf{e_y} + \\
 									   &+ (sen\varphi)\, (sen\varphi)\, \symbf{e_z} \cdot \symbf{e_z} \\
