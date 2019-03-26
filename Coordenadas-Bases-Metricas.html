@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Untitled</title>
+  <meta name="author" content="Javier J. Clavijo" />
+  <title>Bases Vectoriales Cartografía</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -16,8 +17,14 @@
   
   
   
+  
+  
 </head>
 <body>
+<header>
+<h1 class="title">Bases Vectoriales Cartografía</h1>
+<p class="author">Javier J. Clavijo</p>
+</header>
 <h1 id="guia-para-clase-3-borrador-uso-interno.">Guia para Clase 3: borrador uso interno.</h1>
 <p>Autor: Javier Clavijo, Utilizar bajo los términos de la licencia CC-By-SA-4.0: https://creativecommons.org/licenses/by-sa/4.0/</p>
 <h2 id="coordenadas-ne-bases-vectoriales.">Coordenadas <span class="math inline">\(\ne\)</span> Bases Vectoriales.</h2>
@@ -75,7 +82,7 @@ z &amp;= R\, seno\, \varphi
 <p>NOTA: Introducimos aqui el convenio de sumación de einstein. En el mismo, cada vez que aparecen dentro del mismo término subíndices repetidos, significa que este término representa la sumatória de ese término sobre todos los valores posibles de ese subindice. Por ejemplo <span class="math display">\[\boldsymbol{a} = a_i \boldsymbol{e_i} = \sum_{i=x,y,z} a_i \boldsymbol{e_i},\]</span> es la representación de un vector  segun sus componentes sobre la base <span class="math inline">\(\{\boldsymbol{e_x},\boldsymbol{e_y},\boldsymbol{e_z}\}.\)</span></p>
 </div>
 <p>Debemos tener en cuanta que el producto interno entre dos vectores se expresa como <span class="math display">\[\boldsymbol{a}\cdot\boldsymbol{b} = a_i\boldsymbol{e_i}\cdot b_j\boldsymbol{e_j} = a_i b_j \boldsymbol{e_i}\cdot \boldsymbol{e_j},\]</span> debido a la bilinealidad del producto interno. Luego, si los vectores están expresados en una base ortogonal, <span class="math display">\[\boldsymbol{e_i} \cdot \boldsymbol{e_j} = 0, \forall i \ne j, \]</span> es decir que de los 9 términos de la sumatoria solo se conservan aquellos donde <span class="math inline">\(i=j\)</span>. Luego, <span class="math display">\[\boldsymbol{a}\cdot\boldsymbol{b} = a_i\boldsymbol{e_i}\cdot b_i\boldsymbol{e_i} = a_i b_i \boldsymbol{e_i}\cdot\boldsymbol{e_i} = a_i b_i \|\boldsymbol{e_i}\|^2.\]</span></p>
-<p>En adición, si la base vectorial utilizada es también normal, es decir que <span class="math inline">\(\|\boldsymbol{e_i}\|^2 \forall i,\)</span> <span class="math display">\[\boldsymbol{a}\cdot\boldsymbol{b} = a_i b_i,\]</span> que es la forma que utilizamos para definir el producto interno cuando trabajamos con la base cartesiana de <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
+<p>En adición, si la base vectorial utilizada es también normal, es decir que <span class="math inline">\(\|\boldsymbol{e_i}\|^2 = 1 \forall i,\)</span> <span class="math display">\[\boldsymbol{a}\cdot\boldsymbol{b} = a_i b_i,\]</span> que es la forma que utilizamos para definir el producto interno cuando trabajamos con la base cartesiana de <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
 <p>Volviendo ahora a nuestros vectores de la base <span class="math inline">\(\{\boldsymbol{\varphi},\boldsymbol{\lambda},\boldsymbol{r}\}\)</span>, vemos que <span class="math display">\[\begin{align*}
 \boldsymbol{\varphi} \cdot \boldsymbol{\lambda} =&amp; (-R sen\varphi\, cos\lambda)\,(-R cos\varphi\, sen\lambda)\, \boldsymbol{e_x} \cdot \boldsymbol{e_x} + \\
                                        &amp;+ (- R sen\varphi\, sen\lambda)\, (R cos\varphi\, cos\lambda)\, \boldsymbol{e_y} \cdot \boldsymbol{e_y} + \\
@@ -101,7 +108,7 @@ z &amp;= R\, seno\, \varphi
 \boldsymbol{\lambda} \cdot \boldsymbol{\lambda} =&amp; (-R cos\varphi\, sen\lambda\,)\,(-R cos\varphi\, sen\lambda\,)\, \boldsymbol{e_x} \cdot \boldsymbol{e_x} + \\
                                        &amp;+ (R cos\varphi\, cos\lambda)\, (R cos\varphi\, cos\lambda)\, \boldsymbol{e_y} \cdot \boldsymbol{e_y} + \\
                                        &amp;+ 0\, \boldsymbol{e_z} \cdot \boldsymbol{e_z} \\
-                                      =&amp; R^2 cos^2\varphi\, sen^2\lambda\, + R cos^2\varphi\, cos^2\lambda\, = R^2 cos^2\lambda\\
+                                      =&amp; R^2 cos^2\varphi\, sen^2\lambda\, + R cos^2\varphi\, cos^2\lambda\, = R^2 cos^2\varphi\\
 \boldsymbol{r} \cdot \boldsymbol{r} =&amp; (cos\varphi\, cos\lambda)\,(cos\varphi\, cos\lambda)\, \boldsymbol{e_x} \cdot \boldsymbol{e_x} + \\
                                        &amp;+ (cos\varphi\, sen\lambda)\, (cos\varphi\, sen\lambda)\, \boldsymbol{e_y} \cdot \boldsymbol{e_y} + \\
                                        &amp;+ (sen\varphi)\, (sen\varphi)\, \boldsymbol{e_z} \cdot \boldsymbol{e_z} \\
