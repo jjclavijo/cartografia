@@ -68,9 +68,14 @@ Tutors:
 
 ### Clase 5: (9/04) \
 
-Practica: Lenguaje Proj. Archivo vectorial Inkscape. Georreferenciación de imágenes. 
+Practica: 
 
-TODO:Revisar apunte de Datum, especialmente las transformaciones, (Ver libro de Hoffman)
+IDEA: Lenguaje Proj. Archivo vectorial Inkscape. Georreferenciación de imágenes. 
+
+Se HIZO: Superposicion carta/calco, Bajada Palsar, Sistema de coordenadas Pixel, (PAINT),
+         GDALINFO, queda tutorial curvas de nivel.
+
+TODO: Revisar apunte de Datum, especialmente las transformaciones, (Ver libro de Hoffman)
 
 Teoría:
 
@@ -78,87 +83,95 @@ Teoría de datum - Sistemas de Referencia - Elipsoide (sin cuentas ahi).
 
 ### Clase 6: (16/04) \
 
-TUTORIAL: Calcular la latitud de un punto con AutoCAD. \
+TODO: tutor Calcular la latitud de un punto con AutoCAD. \
 
-Práctica: Terminar el trabajo practico. 
-
-Tutorial: Archivos raster, ejemplos de filtros GIMP+\
+Práctica: Terminar el trabajo practico, desde hacer las curvas en adelante, comparar resultados.
+          Explicación que se pueda de transformaciones.
+		  Explicacion Qgis-Basico.
+	  
+Tutorial: Archivos raster, ejemplos de filtros GIMP+
 
 Teoría:
 
-Geometría del elipsoide, desarrol o de algún ejemplo de Proyección.
+Desarrollo de proyecciones: Todas las de figura auxiliar. Enfoque: Necesito una proyeccion donde las lineas fundamentales
+                            sean fáciles de ideintificar, idea: usar superficie auxiliar, resultado: meridianos y paralelos
+							son direcciones fundamentales y son x e y o r y t. 
+							El enfoque para el cálculo es el mismo que se planteó anteriormente. CONDICION: volver a explicar
+							lo de la regla de la cadena y que los vectores $\lambda$ y $varphi$ medidos en el espacio objetivo
+							son los que responden a la métrica.
 
 ### Clase 7: (23/04) 
 
-Desarrollo de algunas proyecciones segun condiciones.
-
-Planteo alternativo: Parametrizacion conforme, parametrización equivalente (Sacar del libro de Donald Fenna o wikipedia)
-
-Practico deformaciones: Planteo del práctico y hacer alguna cuenta, 
-
-### Clase 8: (30/04) \
-
 Teórica:
 
-Mas ejemplos de proyecciones (extraer algún ejemplo de progonos) \
-Planteo OPTIMIZACION.
+Proyecciones con secancia. Proyecciones oblicuas. Se dió las conicas secantes, Se planteo las oblicuas como rotación.
+
+Práctica: Tutoriales de Gimp e Inkscape, dibujar la argentina. Digitalizacion. (pelota porque fue la difusion).
+	      Planteo Práctico de Deformaciones.
+
+### Clase 8: (30/04) **a distancia por paro** \
+
+Teórica: Proyecciones sin figura auxiliar. Desarrollo Pseudocilindricas y Planteo de tranformacion de proyeccion con autovalores y autovectores.
 
 Practica:
-Fin del trabajo III Deformacion. \
+Trabajo III Deformacion: punto 1 Quartic Authalic \
 
 ### Clase 9: (7/05) 
 
 TUTOR: tutorial de histograma, valores extremos, elección de intervalos, etc.
 
-Teórica: Cartografia temática. -  Tratamiento de la información. 
+Teórica: Cartografia temática. variables visuales, actitudes perceptivas, niveles de organización. \
+         generalización, invariante y componente.
 
 Práctica: Ejercicios de parcial.
 
 ### Clase 10: (14/05) \
 
-Teórica: 
-Preguntas pertinentes, variables visuales, actitudes perceptivas, niveles de organización. \
+Teórica: Ejercicios de Parcial
 
-Práctica: Parcial. 
-
-### Clase 11: (21/05) 
-
-Teórica: Optimizacion.
-
-Práctica:
-Busqueda de datos para carta temática. Cuestionarios. Ejemplos de la carta temática (Jhon Snow y Minard). 
+Práctica: Carta temática -- Cuestionario -- Ejemplos John Snow y Minard.
 
 TODO: Digitalizar datos de cartas del apunte (mínimo la de los minerales, conseguir datos de comunas de Francia, armar proyecto de QGis con todo eso)
 
+### Clase 11: (21/05) 
+
+Teórica: Preguntas pertinentes, tipos de carta, orientacion para busqueda
+         de información
+
+Práctica: Parcial.
+
 ### Clase 12: (28/05) \
 
-Teórica: Discusión sobre las cartas. (cuestionarios y reconocer conceptos en base a eso.) - Redondeo optimizacion
+Teórica: Elipsoide 
 
-Práctica:
+Se dio: Que es un elipsoide - Radio de curvatura - M
 
-ENTREGA PRIMER AVANCE CARTA.
 
-Manejo de datos y estilos en Qgis y AutoCAD \
+Planteo alternativo: Parametrizacion conforme, parametrización equivalente (Sacar del libro de Donald Fenna o wikipedia)
 
-Presentacion: INICIA Tp Optimizacion
+Práctica: Revision de Datos que trajeron - plan de tareas
+TUTOR o INTERNET: Manejo de datos y estilos en Qgis y AutoCAD \
 
 ### Clase 13: (4/06) \
 
-Teórica: Mas conceptos de temática. (teoria del Color?) \
+Teórica: M - N exhaustivo - Idea sobre como aplicar esto a una proyección.
 
-TP de optimización Finalizacion, presentan el Martes que sigue. (Pulir ejemplo de optimización y mostrarlo tambien) \
+Presentacion: Se trabajó más con la carta Temática, define 2 temas en 2 grupos.
  
 ### Clase 14: (11/06) \
+
+Teórica: Proyectar en elipsoide y Gauss Kruger (Rehacer apunte) 
 
 Recuperatorio \
 Mas temática \
 
-Practica: Avanzar con las cartas. - Layouts y retoques en INKSCAPE
+TP de elipsoide / optimizacion. \
 
 ### Clase 15: (18/06) 
 
 Teórica: Gauss Kruger (Rehacer apunte) 
 
+Practica: Avanzar con las cartas. - Layouts y retoques en INKSCAPE
 Práctica: Carta temática - mostrar ejemplos de cartas terminadas y mostrar que cosas no deben faltar en una carta.
 
 ### Clase 16: (25/06)

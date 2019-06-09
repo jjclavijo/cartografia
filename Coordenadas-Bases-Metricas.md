@@ -204,44 +204,45 @@ Trasladando esta observación a nuestro ejemplo, vemos que dada una transformaci
 
 Hallaremos ahora una forma de encontrar la rotación necesaria para hayar estas direcciones a las que llamaremos fundamentales.
 
-Construimos $\symbf{\varphi'},\symbf{\lambda'}$ de manera que, con un parámetro A, de manera que $\symbf{\varphi'} \cdot \symbf{\varphi} = cosA \|\symbf{\varphi'}\| \|\symbf{\varphi}\|$ de modo que con $A\in (-\pi,\pi]$ puedan barrerse todas las orientaciones posibles, y que $\symbf{\varphi'}\cdot\symbf{\lambda'}=0$, $\|\symbf{\varphi'}\|=\|\symbf{\varphi}\|$ y $\|\symbf{\lambda}\|=\|\symbf{\lambda}\|$
+Construimos $\symbf{\varphi'},\symbf{\lambda'}$ de manera que, con un parámetro A, de manera que $\symbf{\varphi'} \cdot \symbf{\varphi} = cosA \|\symbf{\varphi'}\| \|\symbf{\varphi}\|$ de modo que con $A\in (-\pi,\pi]$ puedan barrerse todas las orientaciones posibles, y que $\symbf{\varphi'}\cdot\symbf{\lambda'}=0$, $\|\symbf{\varphi'}\|=\|\symbf{\varphi}\|$ y $\|\symbf{\lambda'}\|=\|\symbf{\lambda}\|$
 
 $$\symbf{\varphi'} = \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} \symbf{\lambda} + cosA \symbf{\varphi}$$
 
 $$\symbf{\lambda'} = cosA \symbf{\lambda} - \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} \symbf{\varphi}$$
 
-Notación: dada la transformación $\theta^\star_1(\theta_1,\theta_2), \theta^\star_2(\theta_1,\theta_2)$, anotamos las derivadas parciales utilizando una coma u luego un subindice, por ejemplo $$\theta^\star_{1,\theta_2} = \dfrac{\partial \theta^\star_{1}}{\partial \theta_2}$$
+Notación: dada la transformación $\theta^\star_1(\theta_1,\theta_2), \theta^\star_2(\theta_1,\theta_2)$, anotamos las derivadas parciales utilizando una coma y luego un subindice, por ejemplo $$\theta^\star_{1,\theta_2} = \dfrac{\partial \theta^\star_{1}}{\partial \theta_2}$$
 
 Luego, si aplicamos sobre los vectores construidos la transformación $x = f(\varphi,\lambda), y=g(\varphi,\lambda)$, podemos expresar $\symbf{\varphi}, \symbf{\lambda}$ en funcion de los nuevos vectores $\symbf{x}, \symbf{y}$.
 
 
-$$\symbf{\varphi'} = \left[ \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} x'_{,\lambda} + cosA x'_{,\varphi} \right] \symbf{x} +
-                     \left[ \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} y'_{,\lambda} + cosA y'_{,\varphi} \right] \symbf{y} $$
+$$\symbf{\varphi'} = \left[ \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} \theta_{x,\lambda} + cosA \theta_{x,\varphi} \right] \symbf{x} 
+                     \left[ \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} \theta_{y,\lambda} + cosA \theta_{y,\varphi} \right] \symbf{y} $$
 
-$$\symbf{\lambda'} = \left[cosA x'_{,\lambda} - \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} x'_{,\varphi} \right] \symbf{x} +
-                     \left[cosA y'_{,\lambda} - \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} y'_{,\varphi} \right] \symbf{y} $$
+$$\symbf{\lambda'} = \left[cosA \theta_{x,\lambda} - \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} \theta_{x,\varphi} \right] \symbf{x} +
+                     \left[cosA \theta_{y,\lambda} - \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} \theta_{y,\varphi} \right] \symbf{y} $$
 
-La condición que buscamos es que, en el plano xy, generado por la base ortonormal $\{\symbf{x},\symbf{y}\}$, $\symbf{\varphi'}$ y $\symbf{\lambda'}$ sean ortogonales.
-
-----
-
-NOTA: Hacemos notar que en general $\|\symbf{x}\|\ne1$ y $\|\symbf{x}\|\ne1$ en el espacio de origen, sin embargo, estamos evaluando la ortogonalidad en el plano xy, donde $\symbf{x},\symbf{y}$ es la base ortonormal canónica del plano. Es decir, que nuestra transformación se da entre dos espacios distintos.
+La condición que buscamos es que, en el plano xy, generado por la base ortonormal $\{\symbf{x},\symbf{y}\}$, $\symbf{\varphi'}$ y $\symbf{\lambda'}$ sean ortogonales. 
 
 ----
 
-En el plno xy 
+NOTA: Hacemos notar que en general $\|\symbf{x}\|\ne1$, $\|\symbf{y}\|\ne1$ y $\symbf{x} \cdot \symbf{y}$ en el espacio de origen, sin embargo, estamos evaluando la ortogonalidad en el plano xy, donde $\symbf{x},\symbf{y}$ es la base ortonormal canónica del plano. Es decir, que nuestra transformación se da entre dos espacios distintos. Por ello, calcularemos el producto interno entre ambos vectores, pero en lugar de utilizar la métrica $g_{ii}$ calculada en $\mathds{R}^3$, utilizaremos la identidad, que es la métrica del sistema cartesiano del plano XY.
+
+----
+
+En el plano xy entonces, el producto escalar queda expresado como $$\symbf{\varphi'} \cdot \symbf{\lambda'} = \varphi'_x\lambda'_y + \lambda'_x\varphi'_y$$
 
 \begin{align*}
-\symbf{\varphi} \cdot \symbf{\lambda} &= \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} {x'_{,\lambda}}^2 cosA - \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} x'_{,\lambda} x'_{,\varphi} + cos^2A x'_{,\lambda} x'_{,\varphi} - cosA \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} {x'_{,\varphi}}^2 +  \\
-                                      &+ \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} {y'_{,\lambda}}^2 cosA - \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} y'_{,\lambda} y'_{,\varphi} + cos^2A y'_{,\lambda} y'_{,\varphi} - cosA \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} {y'_{,\varphi}}^2 \\
-									  &= senA\,cosA \left[\frac{\|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} {x'_{,\lambda}}^2 - \frac{\|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} {x'_{,\varphi}}^2 \right] + x'_{,\lambda} x'_{,\varphi} (cos^2A-sen^2A) +  \\
-									  &+ senA\,cosA \left[\frac{\|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} {y'_{,\lambda}}^2 - \frac{\|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} {y'_{,\varphi}}^2 \right] + y'_{,\lambda} y'_{,\varphi} (cos^2A-sen^2A) \\
-									  &= \underbrace{senA\,cosA}_{\frac{1}{2}sen(2A)} \left[\frac{\|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} \underbrace{({x'_{,\lambda}}^2+{y'_{,\lambda}}^2)}_{\text{G}} - \frac{\|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} \underbrace{({x'_{,\varphi}}^2+{x'_{,\varphi}}^2)}_{\text{E}} \right] + \underbrace{(x'_{,\lambda} x'_{,\varphi} + y'_{,\lambda} y'_{,\varphi})}_{\text{F}} \underbrace{(cos^2A-sen^2A)}_{cos(2A)}
+\symbf{\varphi'} \cdot \symbf{\lambda'} &= \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} {\theta_{x,\lambda}}^2 cosA - \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} \theta_{x,\lambda} \theta_{x,\varphi} + cos^2A \theta_{x,\lambda} \theta_{x,\varphi} - cosA \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} {\theta_{x,\varphi}}^2 +  \\
+                                      &+ \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} {\theta_{y,\lambda}}^2 cosA - \frac{senA \|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} \theta_{y,\lambda} \theta_{y,\varphi} + cos^2A \theta_{y,\lambda} \theta_{y,\varphi} - cosA \frac{senA \|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} {\theta_{y,\varphi}}^2 \\
+									  &= senA\,cosA \left[\frac{\|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} {\theta_{x,\lambda}}^2 - \frac{\|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} {\theta_{x,\varphi}}^2 \right] + \theta_{x,\lambda} \theta_{x,\varphi} (cos^2A-sen^2A) +  \\
+									  &+ senA\,cosA \left[\frac{\|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} {\theta_{y,\lambda}}^2 - \frac{\|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} {\theta_{y,\varphi}}^2 \right] + \theta_{y,\lambda} \theta_{y,\varphi} (cos^2A-sen^2A) \\
+									  &= \underbrace{senA\,cosA}_{\frac{1}{2}sen(2A)} \left[\frac{\|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} \underbrace{({\theta_{x,\lambda}}^2+{\theta_{y,\lambda}}^2)}_{\text{G}} - \frac{\|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} \underbrace{({\theta_{x,\varphi}}^2+{\theta_{x,\varphi}}^2)}_{\text{E}} \right] + \underbrace{(\theta_{x,\lambda} \theta_{x,\varphi} + \theta_{y,\lambda} \theta_{y,\varphi})}_{\text{F}} \underbrace{(cos^2A-sen^2A)}_{cos(2A)}
 \end{align*}
 
 Recordamos aqui que los modulos que aparecen en la formula, $\|\symbf{\varphi}\|$ y $\|\symbf{\lambda}\|$ se refieren al espacio de origen, es decir que $$\frac{\|\symbf{\lambda}\|}{\|\symbf{\varphi}\|} = cos\varphi\,;\,\frac{\|\symbf{\varphi}\|}{\|\symbf{\lambda}\|} = cos^-1\varphi$$
 
-Reemplazando en la ecuacion de $\symbf{\varphi} \cdot \symbf{\lambda}$ en el espacio objetivo, e igualandolo a 0 nos queda
+Reemplazando en la ecuacion de $\symbf{\varphi'} \cdot \symbf{\lambda'}$ en el espacio objetivo, e igualandolo a 0 nos queda
+
 \begin{align}
 0 &= \frac{sen(2A)}{2} \left(\frac{\text{G}}{cos\varphi} - \text{E}cos\varphi\right) + \text{F} cos(2A) \\
 \frac{sen(2A)}{cos(2A)} = tan(2A) &= \frac{2\text{F}\, cos\varphi}{-\text{G} + \text{E}cos^2\varphi}
@@ -259,9 +260,9 @@ comprobar que para la transformacion de mercator la formula se anula en general
 
 No es casual que hallamos dado los nombres E, G, y F a los términos que aparecen en la formula. Estos términos corresponden a la métrica del sistema de coordenadas $\varphi,\lambda$ definido sobre el plano xy -- nuestro espacio objetivo en la transformacion $f,g$ analizada --, que se define como $\varphi = h(x,y)\,;\, \lambda = i(x,y)$ donde $h$ e $y$ son funciones tales que $h(f(\varphi_1,\lambda_1),g(\varphi_1,\lambda_1) = \varphi_1\,;\,i(f(\varphi_1,\lambda_1),g(\varphi_1,\lambda_1) = \lambda_1$
 
-Esta métrica nos permite definir el producto interno y la norma en el espacio objetivo, con vectores expresados en el sistema de coordenadas $\varphi,\lambda$. Por ejemplo
+Esta métrica nos permite definir el producto interno y la norma en el espacio objetivo, con vectores expresados en el sistema de coordenadas $\varphi,\lambda$. Es decir que estamos ahora interpretando a $\varphi,\lambda$ como una parametrizacion alternativa de $\mathds{R}^2$
 
-$$\|\symbf{a}\|^2 = a_\varphi^2 E + a_\lambda^2 G + 2 F a_\lambda a_\varphi$$
+Por ejemplo, $$\|\symbf{a}\|^2 = a_\varphi^2 E + a_\lambda^2 G + 2 F a_\lambda a_\varphi$$ nos permite calcular, a partir de las coordenadas $\varphi,\lambda$, la norma del vector resultante en la carta -- espacio objetivo --.
 
 ----
 
@@ -271,7 +272,7 @@ En caso de que hallar las funciones $h',i'$ que generan las coordenadas $\varphi
 
 ----
 
-Si queremos hallar el factor de escala en una dirección arbitraria, debemos comparar la norma de un vector en el espacio origen y en el espacio objetivo. Tomaremos el vector $\symbf{\varphi'}$, definido como dijimos, de tal forma que $\symbf{\varphi'} \cdot \symbf{\varphi} = cosA \|\symbf{\varphi'}\| \|\symbf{\varphi}\|$ y $\|\symbf{\varphi'}\|^2=\|\symbf{\varphi}\|^2 = R^2$.
+Si queremos hallar el factor de escala en una dirección arbitraria, debemos comparar la norma de un vector en el espacio origen y en el espacio objetivo. Tomaremos el vector $\symbf{\varphi'}$, definido como dijimos, de tal forma que en el espacio geográfico $\symbf{\varphi'} \cdot \symbf{\varphi} = cosA \|\symbf{\varphi'}\| \|\symbf{\varphi}\|$ y $\|\symbf{\varphi'}\|^2=\|\symbf{\varphi}\|^2 = R^2$.
 
 Las componentes de este vector son $$ \varphi'_\varphi = cosA ,\, \varphi'_\lambda = \frac{cosA}{cos\varphi},$$ de manera tal que, en el espacio objetivo se da 
 
@@ -290,5 +291,3 @@ Ejercicio:
 a. Se pueden hallar las direcciones fundamentales a partir de hallar los puntos extremos de ${m^l_A}^2$ considerada como una funcion del azimut A.
 
 ----
-
-
