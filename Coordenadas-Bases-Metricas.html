@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Javier J. Clavijo" />
   <title>Bases Vectoriales Cartografía</title>
-  <style type="text/css">
+  <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
   
   
   
@@ -21,7 +24,7 @@
   
 </head>
 <body>
-<header>
+<header id="title-block-header">
 <h1 class="title">Bases Vectoriales Cartografía</h1>
 <p class="author">Javier J. Clavijo</p>
 </header>
@@ -150,7 +153,7 @@ F = &amp; \dfrac{\partial u}{\partial \theta_1}\dfrac{\partial v}{\partial \thet
 <p>Trasladando esta observación a nuestro ejemplo, vemos que dada una transformacion <span class="math inline">\(f(\varphi,\lambda),g(\varphi,\lambda)\)</span>, podemos encontrar una base vectorial <span class="math inline">\(\boldsymbol{\varphi&#39;},\boldsymbol{\lambda&#39;}\)</span>, que se transforma a un par de vectores ortogonales. Si tomamos este nuevo par como base, vemos que en ese sistema de coordenadas las componentes de la metrica <span class="math inline">\(g_{ij} = 0 \forall i \ne j\)</span>, de manera que el módulo de un vector expresado en esa base queda definido como <span class="math display">\[\|\boldsymbol{a}\|^2 = a_i a_i g_ii = a_x^2 g_{xx} + a_y^2 g_{yy}\]</span>, de manera que, independientemente de cual sean los valores de <span class="math inline">\(g_{yy}\)</span> y <span class="math inline">\(g_{xx}\)</span>, si no son iguales, y consideramos el circulo unitario en el plano xy, los modulos de los vectores en el espacio original tendran sus valores extremos en las direcciones de los ejes x e y, y se cumplirá además que <span class="math display">\[ \frac{a_x^2 g_{xx}}{g_{xx}} + \frac{a_y^2 g_{yy}}{g_{xx}} = 1\]</span>, de modo que el circulo unitario del plano xy corresponde a una elipse en el espacio original.</p>
 </div>
 <p>Hallaremos ahora una forma de encontrar la rotación necesaria para hayar estas direcciones a las que llamaremos fundamentales.</p>
-<p>Construimos <span class="math inline">\(\boldsymbol{\varphi&#39;},\boldsymbol{\lambda&#39;}\)</span> de manera que, con un parámetro A, de manera que <span class="math inline">\(\boldsymbol{\varphi&#39;} \cdot \boldsymbol{\varphi} = cosA \|\boldsymbol{\varphi&#39;}\| \|\boldsymbol{\varphi}\|\)</span> de modo que con <span class="math inline">\(A\in (-\pi,\pi]\)</span> puedan barrerse todas las orientaciones posibles, y que <span class="math inline">\(\boldsymbol{\varphi&#39;}\cdot\boldsymbol{\lambda&#39;}=0\)</span>, <span class="math inline">\(\|\boldsymbol{\varphi&#39;}\|=\|\boldsymbol{\varphi}\|\)</span> y <span class="math inline">\(\|\boldsymbol{\lambda}\|=\|\boldsymbol{\lambda}\|\)</span></p>
+<p>Construimos <span class="math inline">\(\boldsymbol{\varphi&#39;},\boldsymbol{\lambda&#39;}\)</span> de manera que, con un parámetro A, de manera que <span class="math inline">\(\boldsymbol{\varphi&#39;} \cdot \boldsymbol{\varphi} = cosA \|\boldsymbol{\varphi&#39;}\| \|\boldsymbol{\varphi}\|\)</span> de modo que con <span class="math inline">\(A\in (-\pi,\pi]\)</span> puedan barrerse todas las orientaciones posibles, y que <span class="math inline">\(\boldsymbol{\varphi&#39;}\cdot\boldsymbol{\lambda&#39;}=0\)</span>, <span class="math inline">\(\|\boldsymbol{\varphi&#39;}\|=\|\boldsymbol{\varphi}\|\)</span> y <span class="math inline">\(\|\boldsymbol{\lambda&#39;}\|=\|\boldsymbol{\lambda}\|\)</span></p>
 <p><span class="math display">\[\boldsymbol{\varphi&#39;} = \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} \boldsymbol{\lambda} + cosA \boldsymbol{\varphi}\]</span></p>
 <p><span class="math display">\[\boldsymbol{\lambda&#39;} = cosA \boldsymbol{\lambda} - \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} \boldsymbol{\varphi}\]</span></p>
 <p>Notación: dada la transformación <span class="math inline">\(\theta^\star_1(\theta_1,\theta_2), \theta^\star_2(\theta_1,\theta_2)\)</span>, anotamos las derivadas parciales utilizando una coma y luego un subindice, por ejemplo <span class="math display">\[\theta^\star_{1,\theta_2} = \dfrac{\partial \theta^\star_{1}}{\partial \theta_2}\]</span></p>
@@ -163,7 +166,7 @@ F = &amp; \dfrac{\partial u}{\partial \theta_1}\dfrac{\partial v}{\partial \thet
 <div style="background-color: lightblue ; width: 70%; margin: auto">
 <p>NOTA: Hacemos notar que en general <span class="math inline">\(\|\boldsymbol{x}\|\ne1\)</span>, <span class="math inline">\(\|\boldsymbol{y}\|\ne1\)</span> y <span class="math inline">\(\boldsymbol{x} \cdot \boldsymbol{y}\)</span> en el espacio de origen, sin embargo, estamos evaluando la ortogonalidad en el plano xy, donde <span class="math inline">\(\boldsymbol{x},\boldsymbol{y}\)</span> es la base ortonormal canónica del plano. Es decir, que nuestra transformación se da entre dos espacios distintos. Por ello, calcularemos el producto interno entre ambos vectores, pero en lugar de utilizar la métrica <span class="math inline">\(g_{ii}\)</span> calculada en <span class="math inline">\(\mathbb{R}^3\)</span>, utilizaremos la identidad, que es la métrica del sistema cartesiano del plano XY.</p>
 </div>
-<p>En el plano xy entonces, el producto escalar queda expresado como <span class="math display">\[\boldsymbol{\varphi&#39;} \cdot \boldsymbol{\lambda&#39;} = \varphi&#39;_x\varphi&#39;_y + \lambda&#39;_x\lambda&#39;_y\]</span></p>
+<p>En el plano xy entonces, el producto escalar queda expresado como <span class="math display">\[\boldsymbol{\varphi&#39;} \cdot \boldsymbol{\lambda&#39;} = \varphi&#39;_x\lambda&#39;_y + \lambda&#39;_x\varphi&#39;_y\]</span></p>
 <p><span class="math display">\[\begin{align*}
 \boldsymbol{\varphi&#39;} \cdot \boldsymbol{\lambda&#39;} &amp;= \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} {\theta_{x,\lambda}}^2 cosA - \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} \theta_{x,\lambda} \theta_{x,\varphi} + cos^2A \theta_{x,\lambda} \theta_{x,\varphi} - cosA \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} {\theta_{x,\varphi}}^2 +  \\
                                       &amp;+ \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} {\theta_{y,\lambda}}^2 cosA - \frac{senA \|\boldsymbol{\varphi}\|}{\|\boldsymbol{\lambda}\|} \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} \theta_{y,\lambda} \theta_{y,\varphi} + cos^2A \theta_{y,\lambda} \theta_{y,\varphi} - cosA \frac{senA \|\boldsymbol{\lambda}\|}{\|\boldsymbol{\varphi}\|} {\theta_{y,\varphi}}^2 \\
@@ -184,7 +187,7 @@ F = &amp; \dfrac{\partial u}{\partial \theta_1}\dfrac{\partial v}{\partial \thet
 </div>
 <p>No es casual que hallamos dado los nombres E, G, y F a los términos que aparecen en la formula. Estos términos corresponden a la métrica del sistema de coordenadas <span class="math inline">\(\varphi,\lambda\)</span> definido sobre el plano xy – nuestro espacio objetivo en la transformacion <span class="math inline">\(f,g\)</span> analizada –, que se define como <span class="math inline">\(\varphi = h(x,y)\,;\, \lambda = i(x,y)\)</span> donde <span class="math inline">\(h\)</span> e <span class="math inline">\(y\)</span> son funciones tales que <span class="math inline">\(h(f(\varphi_1,\lambda_1),g(\varphi_1,\lambda_1) = \varphi_1\,;\,i(f(\varphi_1,\lambda_1),g(\varphi_1,\lambda_1) = \lambda_1\)</span></p>
 <p>Esta métrica nos permite definir el producto interno y la norma en el espacio objetivo, con vectores expresados en el sistema de coordenadas <span class="math inline">\(\varphi,\lambda\)</span>. Es decir que estamos ahora interpretando a <span class="math inline">\(\varphi,\lambda\)</span> como una parametrizacion alternativa de <span class="math inline">\(\mathbb{R}^2\)</span></p>
-<p>Por ejemplo, <span class="math display">\[\|\boldsymbol{a}\|^2 = a_\varphi^2 E + a_\lambda^2 G + 2 F a_\lambda a_\varphi\]</span> nos permite calcular, a partir de las coordenadas <span class="math inline">\(\varphi,\lambda\)</span>, la norma del vector resultante la carta – espacio objetivo –.</p>
+<p>Por ejemplo, <span class="math display">\[\|\boldsymbol{a}\|^2 = a_\varphi^2 E + a_\lambda^2 G + 2 F a_\lambda a_\varphi\]</span> nos permite calcular, a partir de las coordenadas <span class="math inline">\(\varphi,\lambda\)</span>, la norma del vector resultante en la carta – espacio objetivo –.</p>
 <div style="background-color: lightblue ; width: 70%; margin: auto">
 <p>Observación:</p>
 <p>En caso de que hallar las funciones <span class="math inline">\(h&#39;,i&#39;\)</span> que generan las coordenadas <span class="math inline">\(\varphi&#39;,\lambda&#39;\)</span>, de tal manera que <span class="math inline">\(\boldsymbol{\varphi} \cdot \boldsymbol{\lambda} = 0\)</span>, que corresponden a las direcciones fundamentales halladas anteriormente, la métrica generada, descripta por los valores E’, G’ y F’, es tal que <span class="math inline">\(F&#39;=0\)</span>. Luego, el producto interno en esta base queda expresado como <span class="math display">\[\|\boldsymbol{a}\|^2 = a_{\varphi&#39;}^2 E&#39; + a_{\lambda&#39;}^2 G&#39;\]</span>. De modo que, sean cuales sean los valores de E y G, si no son iguales, se da la misma situación descripta anteriormente, donde partiendo de un circulo en el plano <span class="math inline">\(\varphi&#39;\lambda&#39;\)</span>, se llega a una elipse en el plano xy, con los ejes mayor y menor orientados segun los ejex x e y. Demostrando que las direcciones de <span class="math inline">\(\boldsymbol{\varphi&#39;},\boldsymbol{\lambda&#39;}\)</span> son las direcciones de maxima y minima deformacion de escala, y los factores <span class="math inline">\(\sqrt{E&#39;}\)</span> y <span class="math inline">\(\sqrt{G&#39;}\)</span> son los factores de escala máximo y mínimo, también llamados módulos de deformación lineal.</p>
